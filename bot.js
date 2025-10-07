@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const {
     Client,
     GatewayIntentBits,
@@ -8,7 +10,8 @@ const {
     PermissionsBitField,
     ActionRowBuilder,
     ButtonBuilder,
-    ButtonStyle
+    ButtonStyle,
+    InteractionContextType
 } = require('discord.js')
 
 const System = require('fs')
@@ -2715,6 +2718,5 @@ client.on('interactionCreate', async(interaction) => {
     }
 })
 
-client.login(Buffer.from(System.readFileSync('token.txt', 'utf8')
-        .trim(), 'base64')
-    .toString('utf8'));
+const token = process.env.BOT_TOKEN;
+client.login(token);
