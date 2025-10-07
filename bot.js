@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const {
     Client,
     GatewayIntentBits,
@@ -2718,5 +2716,5 @@ client.on('interactionCreate', async(interaction) => {
     }
 })
 
-const token = process.env.BOT_TOKEN;
-client.login(token);
+require('dotenv').config();
+client.login(process.env.BOT_TOKEN)
